@@ -3,6 +3,7 @@ import Welcome from "../components/Welcome";
 import { render, screen } from "@testing-library/react";
 import BookList from "../components/BookList";
 import fantasy from "../data/fantasy.json";
+import userEvent from "@testing-library/user-event";
 
 describe("Checks Welcome.jsx ", () => {
   it("mounts correctly", () => {
@@ -24,5 +25,16 @@ describe("Checks BookList.jsx", () => {
     render(<BookList />);
     const commentArea = screen.getByTestId("commentArea");
     expect(commentArea).toBeInTheDocument;
+  });
+});
+
+describe("Checks search bar", () => {
+  it("return 6 elements if 'song' is typed in the input field", async () => {
+    render(<BookList />);
+    const inputField = screen.getByPlaceholderText("Search");
+    const user = userEvent.setup();
+    await user.type(inputField, "song");
+    const filteredBooks = await screen.findAllByRole("listItem");
+    expect(filteredBooks).toHaveLength(6);
   });
 });

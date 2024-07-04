@@ -63,8 +63,8 @@ const BookList = props => {
       <Container className="mb-3">
         <Form className="mt-5" onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label>Search</Form.Label>
-            <Form.Control type="text" placeholder="Search a book" onChange={event => handleFieldChange(event.target.value)} />
+            <Form.Label aria-label="searchBook">Search</Form.Label>
+            <Form.Control type="text" placeholder="Search" onChange={event => handleFieldChange(event.target.value)} />
           </Form.Group>
         </Form>
       </Container>
