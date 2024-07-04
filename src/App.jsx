@@ -4,6 +4,7 @@ import MyNav from "./components/MyNav";
 import fantasy from "./data/fantasy.json";
 import BookList from "./components/BookList";
 import { useState } from "react";
+import Welcome from "./components/Welcome";
 
 const App = () => {
   /* state = {
@@ -29,6 +30,7 @@ const App = () => {
   return (
     <div className="App">
       <MyNav />
+      <Welcome />
       <BookList genre={fantasy} handleClick={handleClick} comments={comments} asin={asin} setComments={setComments} isSelected={isSelected} selectedAsin={selectedAsin} setSelectedAsin={setSelectedAsin} />
     </div>
   );

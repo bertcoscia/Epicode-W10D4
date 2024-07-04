@@ -7,6 +7,6 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     globals: "true",
-    setupFiles: "./tests/setup.js"
+    setupFiles: "/Users/albertolarochelle/Desktop/Epicode/Progetti/Epicode-W10D4/src/tests/setup.js"
   }
 });
