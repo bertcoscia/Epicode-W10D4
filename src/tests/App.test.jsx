@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import Welcome from "../components/Welcome";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import BookList from "../components/BookList";
 import fantasy from "../data/fantasy.json";
 import userEvent from "@testing-library/user-event";
@@ -32,9 +32,23 @@ describe("Checks BookList.jsx", () => {
     render(<App />);
     const cards = await screen.findAllByRole("listItem");
     const book1 = cards[0];
-    const user = userEvent.setup();
-    await user.click(book1);
+    /* const user = userEvent.setup();
+    await user.click(book1); */
+    fireEvent.click(book1);
     expect(book1).toHaveClass("border-danger");
+  });
+
+  it("card border goes back to normal after clicking another card", async () => {
+    render(<App />);
+    const cards = await screen.findAllByRole("listItem");
+    const book1 = cards[0];
+    const book2 = cards[1];
+    /* const user = userEvent.setup();
+    await user.click(book1);
+    await user.click(book2); */
+    fireEvent.click(book1);
+    fireEvent.click(book2);
+    expect(book1).not.toHaveClass("border-danger");
   });
 });
 
