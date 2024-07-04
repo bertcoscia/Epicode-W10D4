@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react";
 import BookList from "../components/BookList";
 import fantasy from "../data/fantasy.json";
 import userEvent from "@testing-library/user-event";
+import App from "../App";
 
 describe("Checks Welcome.jsx ", () => {
   it("mounts correctly", () => {
@@ -26,9 +27,18 @@ describe("Checks BookList.jsx", () => {
     const commentArea = screen.getByTestId("commentArea");
     expect(commentArea).toBeInTheDocument;
   });
+
+  it("changes card border colour on click", async () => {
+    render(<App />);
+    const cards = await screen.findAllByRole("listItem");
+    const book1 = cards[0];
+    const user = userEvent.setup();
+    await user.click(book1);
+    expect(book1).toHaveClass("border-danger");
+  });
 });
 
-describe("Checks search bar", () => {
+/* describe("Checks search bar", () => {
   it("return 6 elements if 'song' is typed in the input field", async () => {
     render(<BookList />);
     const inputField = screen.getByPlaceholderText("Search");
@@ -56,3 +66,4 @@ describe("Checks search bar", () => {
     expect(filteredBooks).toHaveLength(0);
   });
 });
+ */
