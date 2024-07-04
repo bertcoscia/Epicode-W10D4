@@ -8,7 +8,7 @@ describe("Checks search bar", () => {
     const inputField = screen.getByPlaceholderText("Search");
     const user = userEvent.setup();
     await user.type(inputField, "song");
-    const filteredBooks = await screen.findAllByRole("listItem");
+    const filteredBooks = await screen.findAllByRole("listitem");
     expect(filteredBooks).toHaveLength(6);
   });
 
@@ -17,7 +17,7 @@ describe("Checks search bar", () => {
     const inputField = screen.getByPlaceholderText("Search");
     const user = userEvent.setup();
     await user.type(inputField, "d&d");
-    const filteredBooks = await screen.findAllByRole("listItem");
+    const filteredBooks = await screen.findAllByRole("listitem");
     expect(filteredBooks).toHaveLength(2);
   });
 
@@ -26,7 +26,7 @@ describe("Checks search bar", () => {
     const inputField = screen.getByPlaceholderText("Search");
     const user = userEvent.setup();
     await user.type(inputField, "gerry scotti");
-    const filteredBooks = await screen.queryAllByRole("listItem");
+    const filteredBooks = await screen.queryAllByRole("listitem");
     expect(filteredBooks).toHaveLength(0);
   });
 });

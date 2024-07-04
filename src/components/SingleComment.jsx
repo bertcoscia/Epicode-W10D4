@@ -41,7 +41,7 @@ const SingleComment = props => {
   };
 
   return (
-    <ListGroup.Item className="d-flex flex-column" role="listgroup-item">
+    <ListGroup.Item className="d-flex flex-column" role="comment">
       <p>
         <strong>{props.author}</strong>
       </p>

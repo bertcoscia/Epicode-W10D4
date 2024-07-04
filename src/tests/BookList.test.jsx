@@ -7,7 +7,7 @@ import fantasy from "../data/fantasy.json";
 describe("Checks BookList.jsx", () => {
   it("generates as many cards as the number of elements in array", async () => {
     render(<BookList />);
-    const cards = await screen.findAllByRole("listItem");
+    const cards = await screen.findAllByRole("listitem");
     const fantasyLenght = fantasy.length;
     expect(cards).toHaveLength(fantasyLenght);
   });
@@ -20,7 +20,7 @@ describe("Checks BookList.jsx", () => {
 
   it("changes card border colour on click", async () => {
     render(<App />);
-    const cards = await screen.findAllByRole("listItem");
+    const cards = await screen.findAllByRole("listitem");
     const book1 = cards[0];
     /* const user = userEvent.setup();
       await user.click(book1); */
@@ -30,7 +30,7 @@ describe("Checks BookList.jsx", () => {
 
   it("card border goes back to normal after clicking another card", async () => {
     render(<App />);
-    const cards = await screen.findAllByRole("listItem");
+    const cards = await screen.findAllByRole("listitem");
     const book1 = cards[0];
     const book2 = cards[1];
     /* const user = userEvent.setup();
