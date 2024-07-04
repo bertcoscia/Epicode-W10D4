@@ -15,7 +15,7 @@ const SingleBook = props => {
 
   return (
     <Col xs={12} md={4} xl={3} onClick={() => props.fetchComments(props.asin)}>
-      <Card onClick={() => props.handleClick(props.asin)} className={props.selectedAsin === props.asin ? "border-danger" : ""}>
+      <Card onClick={() => props.handleClick(props.asin)} className={props.selectedAsin === props.asin ? "border-danger" : ""} role="listItem" role="listItem">
         <Card.Img variant="top" src={props.book.img} onClick={() => props.handleClick(props.asin)} />
         <Card.Body>
           <Card.Title className="mb-3">{props.book.title}</Card.Title>

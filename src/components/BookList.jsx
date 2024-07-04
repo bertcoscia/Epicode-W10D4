@@ -16,7 +16,7 @@ const BookList = props => {
 
   const [comments, setComments] = useState([]);
 
-  const [genre, setGenre] = useState();
+  const [genre, setGenre] = useState(fantasy);
 
   const fetchComments = asin => {
     fetch(`${URL + asin}`, {
@@ -43,7 +43,7 @@ const BookList = props => {
 
   return (
     <Container>
-      <Container className="d-flex justify-content-evenly my-3">
+      {/* <Container className="d-flex justify-content-evenly my-3">
         <Button variant="info" onClick={() => setGenre(fantasy)}>
           Fantasy
         </Button>
@@ -59,7 +59,7 @@ const BookList = props => {
         <Button variant="info" onClick={() => setGenre(scifi)}>
           SciFi
         </Button>
-      </Container>
+      </Container> */}
       <Container className="mb-3">
         <Form className="mt-5" onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
