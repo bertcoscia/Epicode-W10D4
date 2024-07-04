@@ -10,7 +10,7 @@ const CommentArea = props => {
   }, [props.asin]);
 
   return (
-    <div className="position-sticky" style={{ top: "30px" }}>
+    <div className="position-sticky" style={{ top: "30px" }} data-testid="commentArea">
       {props.isSelected ? (
         <>
           {props.comments.length > 0 ? (

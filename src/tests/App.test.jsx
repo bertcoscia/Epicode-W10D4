@@ -4,19 +4,25 @@ import { render, screen } from "@testing-library/react";
 import BookList from "../components/BookList";
 import fantasy from "../data/fantasy.json";
 
-describe("Welcome component mounts", () => {
-  it("mounts the component correctly", () => {
+describe("Checks Welcome.jsx ", () => {
+  it("mounts correctly", () => {
     render(<Welcome />);
     const heading = screen.getByText(/welcome to epibooks/i);
     expect(heading).toBeInTheDocument;
   });
 });
 
-describe("Checks BookList component render", () => {
-  it("creates as many cards as the number of elements in array", async () => {
+describe("Checks BookList.jsx", () => {
+  it("generates as many cards as the number of elements in array", async () => {
     render(<BookList />);
     const cards = await screen.findAllByRole("listItem");
     const fantasyLenght = fantasy.length;
     expect(cards).toHaveLength(fantasyLenght);
+  });
+
+  it("mounts CommentArea.jsx correctly", () => {
+    render(<BookList />);
+    const commentArea = screen.getByTestId("commentArea");
+    expect(commentArea).toBeInTheDocument;
   });
 });
